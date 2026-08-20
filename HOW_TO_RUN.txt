@@ -1,0 +1,172 @@
+╔══════════════════════════════════════════════════════════════════╗
+║   SMART ATTENDANCE SYSTEM — COMPLETE SETUP & RUN GUIDE          ║
+║   Student: Shivam Mukhtar Pal  |  Roll No: 2552024              ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1 — INSTALL PYTHON
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Go to: https://www.python.org/downloads/
+2. Download Python 3.10 or above
+3. Install it — TICK "Add Python to PATH" during installation
+4. Open Command Prompt and verify:
+      python --version
+   Should show:  Python 3.10.x
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 2 — INSTALL XAMPP (MySQL Database)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Go to: https://www.apachefriends.org/
+2. Download XAMPP for Windows
+3. Install it (default settings)
+4. Open XAMPP Control Panel
+5. Click START next to MySQL
+6. Click START next to Apache (for phpMyAdmin)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 3 — SETUP THE DATABASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open your browser → go to:  http://localhost/phpmyadmin
+2. Click "Import" in the top menu
+3. Click "Choose File"
+4. Select the file:  database.sql  (in this project folder)
+5. Click "Go" / Import
+6. You should see:  smart_attendance_db  created in the left panel
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 4 — INSTALL PYTHON LIBRARIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open Command Prompt (cmd)
+2. Navigate to project folder:
+      cd path\to\smart_attendance_system
+3. Run:
+      pip install -r requirements.txt
+
+   This will install:
+   • opencv-python         (face detection)
+   • opencv-contrib-python (LBPH recognition)
+   • mysql-connector-python (database)
+   • pandas + openpyxl     (Excel reports)
+   • numpy, Pillow         (image processing)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 5 — CONFIGURE SETTINGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Open  config.py  in any text editor (Notepad, VS Code):
+
+DB_CONFIG:
+  host     = "localhost"      ← keep as is for XAMPP
+  user     = "root"           ← keep as is for XAMPP
+  password = ""               ← blank for XAMPP default
+  database = "smart_attendance_db"  ← keep as is
+
+EMAIL_CONFIG (optional — only needed for email alerts):
+  sender_email = "your_gmail@gmail.com"
+  app_password = "xxxx xxxx xxxx xxxx"   ← Google App Password
+  (See Google: myaccount.google.com > Security > App Passwords)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 6 — RUN THE APPLICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+In Command Prompt (inside the project folder):
+
+      python main.py
+
+Login Screen will appear.
+   Email:    admin@college.com
+   Password: admin123
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOW TO USE THE SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. REGISTER STUDENTS:
+   → Go to "Register Student" tab
+   → Fill Name, Roll No, Class, Email
+   → Click "Register Student"
+   → Webcam opens — student looks at camera
+   → 100 photos captured automatically
+   → Click "Train Model" after registering all students
+
+2. MARK ATTENDANCE:
+   → Go to "Mark Attendance" tab
+   → Select Subject from dropdown
+   → Click "START Recognition"
+   → Webcam opens — students walk in front
+   → Names appear automatically — attendance marked!
+   → Press Q or click STOP when done
+
+3. VIEW REPORTS:
+   → Go to "Reports" tab
+   → Filter by Subject / Date Range
+   → Click "Load Report"
+   → Click "Export Excel" to download
+
+4. SEND EMAIL ALERTS:
+   → Go to "Email Alerts" tab
+   → Select subject
+   → Click "Check Low Attendance"
+   → Students below 75% are listed
+   → Click "Send All Alerts" to email them
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROJECT FOLDER STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+smart_attendance_system/
+├── main.py                      ← Run this to start
+├── config.py                    ← Settings (DB, Email)
+├── requirements.txt             ← Python libraries list
+├── database.sql                 ← Import this in phpMyAdmin
+├── HOW_TO_RUN.txt               ← This file
+│
+├── modules/
+│   ├── database.py              ← MySQL connection
+│   ├── register_student.py      ← Student enrollment + face capture
+│   ├── train_model.py           ← LBPH model training
+│   ├── recognize_face.py        ← Real-time face recognition
+│   ├── attendance_manager.py    ← Mark + fetch attendance
+│   ├── report_generator.py      ← Excel report export
+│   └── notification_system.py  ← Email alerts
+│
+├── ui/
+│   ├── login_window.py          ← Login screen
+│   └── dashboard.py             ← Main application GUI
+│
+└── data/
+    ├── student_images/          ← Face photos (auto-created)
+    └── trained_model.yml        ← LBPH model (auto-created)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMMON ERRORS & FIXES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Error: "Cannot connect to MySQL"
+Fix:   → Open XAMPP → Start MySQL
+       → Check password in config.py
+
+Error: "No module named cv2"
+Fix:   → pip install opencv-python opencv-contrib-python
+
+Error: "Webcam not accessible"
+Fix:   → Check webcam is connected
+       → Close other apps using camera (Teams, Zoom etc.)
+
+Error: "Model not found. Please train model first."
+Fix:   → Register at least 1 student first
+       → Then click "Train / Retrain Model"
+
+Error: "No face detected"
+Fix:   → Improve lighting in the room
+       → Make sure face is directly facing the camera
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+All the best, Shivam! 🎓
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

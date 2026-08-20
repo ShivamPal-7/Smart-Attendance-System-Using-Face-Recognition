@@ -1,0 +1,8 @@
+opencv-python==4.9.0.80
+opencv-contrib-python==4.9.0.80
+mysql-connector-python==8.3.0
+numpy==1.26.4
+pandas==2.2.1
+openpyxl==3.1.2
+Pillow==10.2.0
+matplotlib==3.8.3
