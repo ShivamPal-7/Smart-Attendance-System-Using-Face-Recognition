@@ -1,6 +1,25 @@
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
 venv/
-.env
-config.py
+env/
+
+# Student face data - DO NOT upload
+data/student_images/*
 data/trained_model.yml
+
+# Configuration / secrets
+config.py
+.env
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
