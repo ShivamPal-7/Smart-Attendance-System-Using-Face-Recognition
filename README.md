@@ -1,6 +1,6 @@
 # 🎓 Smart Attendance System Using Face Recognition
 
-<div align="center">
+<div *align*="center">
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.9-green?style=for-the-badge&logo=opencv&logoColor=white)
@@ -31,12 +31,12 @@ Traditional attendance systems are slow, error-prone, and allow proxy attendance
 | Feature | Description |
 |---------|-------------|
 | 📷 **Real-Time Face Detection** | Haar Cascade Classifier detects faces in live webcam feed |
-| 🧠 **Face Recognition** | LBPH algorithm matches faces with 95-97% accuracy |
+| 🧠 **Face Recognition** | LBPH algorithm recognizes registered faces |
 | 👤 **Student Registration** | Captures 100 face samples per student via webcam |
 | ✅ **Auto Attendance Marking** | Marks attendance with date & time on recognition |
 | 🗄️ **MySQL Database** | All records stored securely with no duplicates |
 | 📊 **Attendance Reports** | View, filter by date/subject, export to Excel |
-| 📧 **Email Alerts** | Auto-sends email to students below 75% attendance |
+| 📧 **Email Alerts** | Email notification module for low attendance |
 | 🔐 **Faculty/Admin Login** | Role-based secure login system |
 | 📈 **Analytics Charts** | Bar charts showing attendance % per student |
 | 🎨 **Modern Dark UI** | Clean Tkinter-based dashboard with tab navigation |
@@ -69,7 +69,7 @@ Traditional attendance systems are slow, error-prone, and allow proxy attendance
 
 ```
 Language        →  Python 3.12
-GUI Framework   →  Tkinter (CustomTkinter styled)
+GUI Framework   →  Tkinter 
 Computer Vision →  OpenCV 4.9 (Haar Cascade + LBPH)
 Database        →  MySQL 8.0 via XAMPP
 Reporting       →  Pandas + OpenPyXL (Excel export)
@@ -93,7 +93,7 @@ Smart-Attendance-System-Using-Face-Recognition/
 ├── README.md
 │
 ├── modules/
-│   ├── db.py                  ← Database connection & helpers
+│   ├── database.py                  ← Database connection & helpers
 │   ├── register_student.py    ← Face capture & student registration
 │   ├── train_model.py         ← LBPH model training
 │   ├── recognize_face.py      ← Real-time recognition engine
@@ -110,7 +110,12 @@ Smart-Attendance-System-Using-Face-Recognition/
 │   ├── student_images/        ← Face photos (not in repo — privacy)
 │   └── trained_model.yml      ← Trained model (not in repo)
 │
-└── screenshots/               ← UI screenshots for README
+└── screenshots/
+    ├── login.png
+    ├   ── dashboard.png
+    ├── register_student.png
+    ├── recognition.png
+    └── attendance_report.png   ← UI screenshots for README
 ```
 
 ---
@@ -172,12 +177,18 @@ DB_CONFIG = {
 **5. Run the application**
 ```bash
 python main.py
+
+```
+### Login
+
 ```
 
-### Default Login
-```
-Email:    admin@college.edu
-Password: admin123
+The application requires a faculty/admin account configured in the
+MySQL database.
+
+For security reasons, login credentials are not published in this
+repository.
+
 ```
 
 > 📄 See [HOW_TO_RUN.txt](HOW_TO_RUN.txt) for the complete setup guide.
@@ -220,15 +231,10 @@ smart_attendance_db
 
 ## 📊 Performance
 
-| Condition | Recognition Accuracy |
-|-----------|---------------------|
-| Good lighting, frontal face | **97.4%** |
-| Low light, dim room | **88.2%** |
-| Side angle (45°) | **79.6%** |
-| With glasses | **85.0%** |
-
-**Time to mark attendance for 60 students:** ~22 seconds  
-*(vs. 10–15 minutes manually)*
+The system performs real-time face recognition using OpenCV's LBPH
+Face Recognizer. Recognition performance depends on lighting,
+camera quality, face angle, and the quality and quantity of registered
+face samples.
 
 ---
 
@@ -267,13 +273,12 @@ The `config.py` file containing database credentials is also excluded via `.giti
 | Field | Details |
 |-------|---------|
 | **Developer** | Shivam Mukhtar Pal |
-| **Roll No.** | 2552024 |
-| **Course** | B.Sc. Computer Science — Sem IV |
+| **Roll No.** | 2653027 |
+| **Course** | B.Sc. Computer Science — Sem V |
 | **College** | VPM's RZ Shah College of Arts, Science & Commerce, Mulund |
 | **University** | University of Mumbai |
-| **Guide** | Prof. Sneha Patil (Asst. Professor, CS) |
-| **Year** | 2025-2026 |
-| **Project Type** | Mini Project – I (2 Credit Course) |
+| **Year** | 2026-2027 |
+| **Project Type** | Mini Project – I |
 
 ---
 
